@@ -1,0 +1,94 @@
+# Form-Button-Report-
+import java.io.File;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.HashMap;
+import java.util.Map;
+import javax.swing.JOptionPane;
+import koneksi.db_form;
+import net.sf.jasperreports.engine.JasperCompileManager;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.engine.design.JasperDesign;
+import net.sf.jasperreports.engine.xml.JRXmlLoader;
+import net.sf.jasperreports.view.JasperViewer;
+import java.awt.Dimension;
+import java.awt.Toolkit;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+
+ public class laporan2 extends javax.swing.JFrame {   
+    db_form con;
+    Connection conn = new db_form().getConnection();
+    ResultSet rs = null;
+    PreparedStatement pst = null;
+    JasperReport jasperReport;
+    JasperDesign jasperDesign;
+    JasperPrint jasperPrint;
+    Map par=new HashMap();
+    String nama = UserSession.get_username();
+    }
+    
+    public laporan2() {
+        initComponents();
+        this.setLocationRelativeTo(null);
+        Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
+        this.setSize(dim.width, dim.height);
+        con = new db_form();
+        con.Class();
+        ComboGroup();
+        this.setExtendedState(laporan2.MAXIMIZED_BOTH);
+        lblUserLogin.setText(nama);
+        }
+        
+   private void laporan() {
+        
+       Connection conn = new db_form().getConnection();
+            try {
+               String path = "src/aplikasi/report1.jasper";
+               //   Map parameter = new HashMap();
+               // par.clear();
+             par.put("USER", lblUserLogin.getText());
+               // JasperReport jasperreport=JasperCompileManager.compileReport(jasperdesign);
+                JasperPrint print = JasperFillManager.fillReport(path,par, conn);
+               JasperViewer jv = new JasperViewer(print, false);
+               jv.setVisible(true);
+                //JasperViewer.viewReport(print, false);
+            } catch (Exception ex) {
+                JOptionPane.showMessageDialog(null, "Dokumen Tidak Ada" + "\n" + ex.getMessage());
+            }
+     }
+     
+     private void Button_shiftActionPerformed(java.awt.event.ActionEvent evt) {                                             
+       laporan_shift();        
+    }
+    
+ #Dan Berikut Coding Koneksi saya :
+package koneksi;
+import java.sql.*;
+public class db_form {
+    public Connection cc;
+    public Statement ss;
+    public ResultSet rs;
+    
+public void Class () {
+    try { 
+        Class.forName("com.mysql.jdbc.Driver");
+        cc=DriverManager.getConnection("jdbc:mysql://localhost/database","root","root");
+        System.out.println("Koneksi OK!!");
+        
+    }  catch (Exception e) {
+        System.out.println(e);
+    }
+}
+public Connection getConnection() {
+        return cc;
+    }       
+}
+
+# ketika mau print kelar no document dan di output message spt berikut : 
+# net.sf.jasperreports.engine.query.JRJdbcQueryExecuter <init>
+# WARNING: The supplied java.sql.Connection object is null.
+    
