@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="7401024d-f099-4231-9f3f-cd30fe1837dd">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT
+     nota.`id_nota` AS nota_id_nota,
+     nota.`no_nota` AS nota_no_nota,
+     nota.`shipper` AS nota_shipper,
+     nota.`no_awb` AS nota_no_awb,
+     nota.`no_hawb` AS nota_no_hawb,
+     nota.`awb_pcs` AS nota_awb_pcs,
+     nota.`mawb_seriawal` AS nota_mawb_seriawal,
+     nota.`mawb_seriakhir` AS nota_mawb_seriakhir,
+     nota.`mawb_totalprint` AS nota_mawb_totalprint,
+     nota.`type` AS nota_type,
+     nota.`total_biaya` AS nota_total_biaya,
+     nota.`ppn` AS nota_ppn,
+     nota.`user` AS nota_user,
+     nota.`tanggal` AS nota_tanggal
+FROM
+     `nota` nota]]>
+	</queryString>
+	<field name="nota_id_nota" class="java.lang.Integer"/>
+	<field name="nota_no_nota" class="java.lang.String"/>
+	<field name="nota_shipper" class="java.lang.String"/>
+	<field name="nota_no_awb" class="java.lang.String"/>
+	<field name="nota_no_hawb" class="java.lang.String"/>
+	<field name="nota_awb_pcs" class="java.lang.Integer"/>
+	<field name="nota_mawb_seriawal" class="java.lang.Integer"/>
+	<field name="nota_mawb_seriakhir" class="java.lang.Integer"/>
+	<field name="nota_mawb_totalprint" class="java.lang.Integer"/>
+	<field name="nota_type" class="java.lang.String"/>
+	<field name="nota_total_biaya" class="java.lang.Integer"/>
+	<field name="nota_ppn" class="java.lang.Float"/>
+	<field name="nota_user" class="java.lang.String"/>
+	<field name="nota_tanggal" class="java.sql.Date"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="27" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="542ede2b-c9df-4119-92b6-df1417e1c910" x="2" y="2" width="100" height="20"/>
+				<textElement/>
+				<text><![CDATA[nota_no_nota]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="d193977e-2f0f-452a-9d59-6c9772ab0af9" x="104" y="2" width="100" height="20"/>
+				<textElement/>
+				<text><![CDATA[nota_shipper]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="c8371e88-33bf-4b6f-abfb-b93f8d1f7971" x="212" y="2" width="100" height="20"/>
+				<textElement/>
+				<text><![CDATA[nota_no_awb]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="c865f44f-f3ff-49ae-be11-6a8b80aa24be" x="312" y="0" width="100" height="20"/>
+				<textElement/>
+				<text><![CDATA[nota_mawb_totalprint]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="d16a4de8-90f4-4621-9e50-35418eba4101" x="423" y="2" width="100" height="20"/>
+				<textElement/>
+				<text><![CDATA[nota_type]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="c0507904-bebc-463d-94c1-4d9b9ddefa6e" x="536" y="7" width="100" height="20"/>
+				<textElement/>
+				<text><![CDATA[nota_ppn]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="a6426cf5-77f3-42ff-8682-f16e55e1c338" x="663" y="0" width="100" height="20"/>
+				<textElement/>
+				<text><![CDATA[nota_tanggal]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="37" splitType="Stretch">
+			<textField>
+				<reportElement uuid="e3ace585-54ba-4292-9b46-ac6b5f9e9577" x="4" y="0" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{nota_no_nota}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="206c8cfb-2495-4707-ac32-af3eb4df5302" x="104" y="0" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{nota_shipper}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="27ba215a-5264-42e9-81e8-86b559dc8882" x="212" y="10" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{nota_no_awb}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="20c1040d-2d96-492c-bbeb-3719264a92b8" x="312" y="10" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{nota_mawb_totalprint}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="94f15f40-350a-4358-95ca-6719a4b86f12" x="423" y="10" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{nota_type}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="67019c92-d806-4be0-a47a-4b125a3c9dc6" x="536" y="10" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{nota_ppn}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="00bbca4d-a882-4f3d-97ba-88af2653395a" x="663" y="10" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{nota_tanggal}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>
